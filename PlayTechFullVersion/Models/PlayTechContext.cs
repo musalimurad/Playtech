@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using WinFormsAppModel.Models;
 
 #nullable disable
 
-namespace PlayTechFullVersion.Models
+namespace Task.Models
 {
     public partial class PlayTechContext : DbContext
     {
@@ -19,19 +20,21 @@ namespace PlayTechFullVersion.Models
 
         public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<CreditMonth> CreditMonths { get; set; }
+        public virtual DbSet<Dept> Depts { get; set; }
         public virtual DbSet<Expense> Expenses { get; set; }
         public virtual DbSet<Firm> Firms { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<OrderItem> OrderItems { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<SaleType> SaleTypes { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data source=(localdb)\\mssqllocaldb;initial catalog=Playtech;integrated security=true");
+                optionsBuilder.UseSqlServer("Server=SQL5103.site4now.net;Database=db_a4f2ac_playtechdb;User Id= db_a4f2ac_playtechdb_admin; Password=PlayTech_2021;");
             }
         }
 
@@ -57,13 +60,43 @@ namespace PlayTechFullVersion.Models
                 entity.Property(e => e.CategoryName).HasMaxLength(100);
             });
 
+            modelBuilder.Entity<CreditMonth>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Month).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Dept>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Fullname).HasMaxLength(50);
+
+                entity.Property(e => e.TakeDate).HasColumnType("datetime");
+
+                entity.Property(e => e.TakeMoney).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.TakeWhy).HasMaxLength(500);
+            });
+
             modelBuilder.Entity<Expense>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.AllMoney).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.CalcDate).HasColumnType("datetime");
+
                 entity.Property(e => e.Communal).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.FloorPrice).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.Fullname).HasMaxLength(50);
+
+                entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+
+                entity.Property(e => e.WorkerSalary).HasColumnType("decimal(18, 2)");
             });
 
             modelBuilder.Entity<Firm>(entity =>
@@ -90,11 +123,20 @@ namespace PlayTechFullVersion.Models
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.CreditMonthId).HasColumnName("CreditMonthID");
+
                 entity.Property(e => e.DailySaleDate).HasColumnType("datetime");
 
                 entity.Property(e => e.ItemPrice).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
+
+                entity.Property(e => e.SaleTypeId).HasColumnName("SaleTypeID");
+
+                entity.HasOne(d => d.CreditMonth)
+                    .WithMany(p => p.OrderItems)
+                    .HasForeignKey(d => d.CreditMonthId)
+                    .HasConstraintName("FK_OrderItems_CreditMonths");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderItems)
@@ -105,6 +147,11 @@ namespace PlayTechFullVersion.Models
                     .WithMany(p => p.OrderItems)
                     .HasForeignKey(d => d.ProductId)
                     .HasConstraintName("FK_OrderItems_Products1");
+
+                entity.HasOne(d => d.SaleType)
+                    .WithMany(p => p.OrderItems)
+                    .HasForeignKey(d => d.SaleTypeId)
+                    .HasConstraintName("FK_OrderItems_SaleTypes");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -133,8 +180,14 @@ namespace PlayTechFullVersion.Models
                 entity.HasOne(d => d.Firm)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.FirmId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Products_Firms");
+            });
+
+            modelBuilder.Entity<SaleType>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Type).HasMaxLength(50);
             });
 
             modelBuilder.Entity<User>(entity =>

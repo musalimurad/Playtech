@@ -60,10 +60,16 @@ namespace PlayTechFullVersion
             this.Quantity_num = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.add_btn = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.installment_cb = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.payMethod_cb = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddProduct_dgv)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Quantity_num)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -308,7 +314,7 @@ namespace PlayTechFullVersion
             this.AddProduct_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AddProduct_dgv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AddProduct_dgv.GridColor = System.Drawing.SystemColors.HotTrack;
-            this.AddProduct_dgv.Location = new System.Drawing.Point(12, 525);
+            this.AddProduct_dgv.Location = new System.Drawing.Point(12, 468);
             this.AddProduct_dgv.Name = "AddProduct_dgv";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -324,7 +330,7 @@ namespace PlayTechFullVersion
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Yellow;
             this.AddProduct_dgv.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.AddProduct_dgv.RowTemplate.Height = 25;
-            this.AddProduct_dgv.Size = new System.Drawing.Size(1218, 262);
+            this.AddProduct_dgv.Size = new System.Drawing.Size(1218, 303);
             this.AddProduct_dgv.TabIndex = 118;
             this.AddProduct_dgv.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.AddProduct_dgv_RowHeaderMouseDoubleClick);
             // 
@@ -463,8 +469,8 @@ namespace PlayTechFullVersion
             this.Quantity_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Quantity_num.Location = new System.Drawing.Point(500, 128);
             this.Quantity_num.Maximum = new decimal(new int[] {
-            10000,
-            0,
+            1874919424,
+            2328306,
             0,
             0});
             this.Quantity_num.Name = "Quantity_num";
@@ -478,7 +484,6 @@ namespace PlayTechFullVersion
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
@@ -497,7 +502,7 @@ namespace PlayTechFullVersion
             this.add_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_btn.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.add_btn.ForeColor = System.Drawing.Color.White;
-            this.add_btn.Location = new System.Drawing.Point(283, 318);
+            this.add_btn.Location = new System.Drawing.Point(335, 355);
             this.add_btn.Name = "add_btn";
             this.add_btn.Size = new System.Drawing.Size(199, 54);
             this.add_btn.TabIndex = 159;
@@ -505,12 +510,83 @@ namespace PlayTechFullVersion
             this.add_btn.UseVisualStyleBackColor = false;
             this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.installment_cb);
+            this.panel3.Location = new System.Drawing.Point(12, 255);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(244, 83);
+            this.panel3.TabIndex = 167;
+            this.panel3.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(18, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 21);
+            this.label4.TabIndex = 166;
+            this.label4.Text = "Kredit müddəti";
+            // 
+            // installment_cb
+            // 
+            this.installment_cb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.installment_cb.DropDownHeight = 70;
+            this.installment_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.installment_cb.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.installment_cb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.installment_cb.FormattingEnabled = true;
+            this.installment_cb.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.installment_cb.IntegralHeight = false;
+            this.installment_cb.ItemHeight = 21;
+            this.installment_cb.Location = new System.Drawing.Point(18, 33);
+            this.installment_cb.Name = "installment_cb";
+            this.installment_cb.Size = new System.Drawing.Size(199, 29);
+            this.installment_cb.TabIndex = 165;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(29, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(109, 21);
+            this.label5.TabIndex = 169;
+            this.label5.Text = "Ödəniş üsulu";
+            // 
+            // payMethod_cb
+            // 
+            this.payMethod_cb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.payMethod_cb.DropDownHeight = 70;
+            this.payMethod_cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.payMethod_cb.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.payMethod_cb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.payMethod_cb.FormattingEnabled = true;
+            this.payMethod_cb.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.payMethod_cb.IntegralHeight = false;
+            this.payMethod_cb.ItemHeight = 21;
+            this.payMethod_cb.Location = new System.Drawing.Point(29, 195);
+            this.payMethod_cb.Name = "payMethod_cb";
+            this.payMethod_cb.Size = new System.Drawing.Size(199, 29);
+            this.payMethod_cb.TabIndex = 168;
+            this.payMethod_cb.SelectedIndexChanged += new System.EventHandler(this.payMethod_cb_SelectedIndexChanged);
+            // 
             // SellPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1242, 788);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.payMethod_cb);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.add_btn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Quantity_num);
@@ -532,6 +608,8 @@ namespace PlayTechFullVersion
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Quantity_num)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -566,5 +644,10 @@ namespace PlayTechFullVersion
         private System.Windows.Forms.NumericUpDown Quantity_num;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button add_btn;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox installment_cb;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox payMethod_cb;
     }
 }

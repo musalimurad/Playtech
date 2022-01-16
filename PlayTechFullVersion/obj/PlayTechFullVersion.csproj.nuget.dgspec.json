@@ -5,10 +5,10 @@
   },
   "projects": {
     "C:\\Users\\musal\\source\\repos\\PlayTechFullVersion\\PlayTechFullVersion\\PlayTechFullVersion.csproj": {
-      "version": "1.0.0",
+      "version": "2.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\musal\\source\\repos\\PlayTechFullVersion\\PlayTechFullVersion\\PlayTechFullVersion.csproj",
-        "projectName": "PlayTechFullVersion",
+        "projectName": "PlayTechBaku",
         "projectPath": "C:\\Users\\musal\\source\\repos\\PlayTechFullVersion\\PlayTechFullVersion\\PlayTechFullVersion.csproj",
         "packagesPath": "C:\\Users\\musal\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\musal\\source\\repos\\PlayTechFullVersion\\PlayTechFullVersion\\obj\\",
@@ -44,10 +44,6 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
-            "AForge.Video.DirectShow": {
-              "target": "Package",
-              "version": "[2.2.5, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.9, )"

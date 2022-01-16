@@ -66,6 +66,8 @@ namespace PlayTechFullVersion
             this.ProductName_tb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.PublishDate_dtp = new System.Windows.Forms.DateTimePicker();
+            this.rasxod_lb = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddProduct_dgv)).BeginInit();
             this.panel2.SuspendLayout();
@@ -331,12 +333,12 @@ namespace PlayTechFullVersion
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(896, 411);
+            this.label6.Location = new System.Drawing.Point(18, 390);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 21);
             this.label6.TabIndex = 136;
@@ -344,12 +346,12 @@ namespace PlayTechFullVersion
             // 
             // AllPrice_lb
             // 
-            this.AllPrice_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AllPrice_lb.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.AllPrice_lb.AutoSize = true;
             this.AllPrice_lb.BackColor = System.Drawing.Color.Transparent;
             this.AllPrice_lb.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AllPrice_lb.ForeColor = System.Drawing.Color.White;
-            this.AllPrice_lb.Location = new System.Drawing.Point(128, 411);
+            this.AllPrice_lb.Location = new System.Drawing.Point(128, 309);
             this.AllPrice_lb.Name = "AllPrice_lb";
             this.AllPrice_lb.Size = new System.Drawing.Size(46, 21);
             this.AllPrice_lb.TabIndex = 135;
@@ -357,12 +359,12 @@ namespace PlayTechFullVersion
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 411);
+            this.label1.Location = new System.Drawing.Point(12, 309);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 21);
             this.label1.TabIndex = 134;
@@ -383,8 +385,7 @@ namespace PlayTechFullVersion
             // 
             // AddProduct_dgv
             // 
-            this.AddProduct_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddProduct_dgv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.AddProduct_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AddProduct_dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AddProduct_dgv.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -466,12 +467,12 @@ namespace PlayTechFullVersion
             // 
             // TopPrice_lb
             // 
-            this.TopPrice_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TopPrice_lb.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.TopPrice_lb.AutoSize = true;
             this.TopPrice_lb.BackColor = System.Drawing.Color.Transparent;
             this.TopPrice_lb.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TopPrice_lb.ForeColor = System.Drawing.Color.White;
-            this.TopPrice_lb.Location = new System.Drawing.Point(941, 411);
+            this.TopPrice_lb.Location = new System.Drawing.Point(63, 390);
             this.TopPrice_lb.Name = "TopPrice_lb";
             this.TopPrice_lb.Size = new System.Drawing.Size(46, 21);
             this.TopPrice_lb.TabIndex = 139;
@@ -565,6 +566,7 @@ namespace PlayTechFullVersion
             this.ProductName_tb.Size = new System.Drawing.Size(200, 29);
             this.ProductName_tb.TabIndex = 153;
             this.ProductName_tb.UseSystemPasswordChar = true;
+            this.ProductName_tb.TextChanged += new System.EventHandler(this.ProductName_tb_TextChanged);
             // 
             // label7
             // 
@@ -591,12 +593,40 @@ namespace PlayTechFullVersion
             this.PublishDate_dtp.TabIndex = 159;
             this.PublishDate_dtp.ValueChanged += new System.EventHandler(this.PublishDate_dtp_ValueChanged);
             // 
+            // rasxod_lb
+            // 
+            this.rasxod_lb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.rasxod_lb.AutoSize = true;
+            this.rasxod_lb.BackColor = System.Drawing.Color.Transparent;
+            this.rasxod_lb.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rasxod_lb.ForeColor = System.Drawing.Color.White;
+            this.rasxod_lb.Location = new System.Drawing.Point(124, 347);
+            this.rasxod_lb.Name = "rasxod_lb";
+            this.rasxod_lb.Size = new System.Drawing.Size(46, 21);
+            this.rasxod_lb.TabIndex = 162;
+            this.rasxod_lb.Text = "0000";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(15, 347);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 21);
+            this.label4.TabIndex = 161;
+            this.label4.Text = "Maya dəyəri:";
+            // 
             // AllSaleBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1242, 788);
+            this.Controls.Add(this.rasxod_lb);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.PublishDate_dtp);
             this.Controls.Add(this.panel2);
@@ -663,5 +693,7 @@ namespace PlayTechFullVersion
         private System.Windows.Forms.TextBox ProductName_tb;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker PublishDate_dtp;
+        private System.Windows.Forms.Label rasxod_lb;
+        private System.Windows.Forms.Label label4;
     }
 }

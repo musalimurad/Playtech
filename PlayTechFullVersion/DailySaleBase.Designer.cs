@@ -48,8 +48,6 @@ namespace PlayTechFullVersion
             this.Exit_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.AddProduct_dgv = new System.Windows.Forms.DataGridView();
-            this.Product_cb = new System.Windows.Forms.ComboBox();
-            this.TagName_lb = new System.Windows.Forms.Label();
             this.about_btn = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -321,35 +319,6 @@ namespace PlayTechFullVersion
             this.AddProduct_dgv.Size = new System.Drawing.Size(1218, 467);
             this.AddProduct_dgv.TabIndex = 122;
             // 
-            // Product_cb
-            // 
-            this.Product_cb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.Product_cb.DropDownHeight = 70;
-            this.Product_cb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.Product_cb.FormattingEnabled = true;
-            this.Product_cb.IntegralHeight = false;
-            this.Product_cb.ItemHeight = 21;
-            this.Product_cb.Location = new System.Drawing.Point(519, 126);
-            this.Product_cb.Name = "Product_cb";
-            this.Product_cb.Size = new System.Drawing.Size(199, 29);
-            this.Product_cb.TabIndex = 119;
-            this.Product_cb.SelectedIndexChanged += new System.EventHandler(this.Product_cb_SelectedIndexChanged);
-            this.Product_cb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Product_cb_KeyDown);
-            this.Product_cb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Product_cb_KeyPress);
-            this.Product_cb.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Product_cb_KeyUp);
-            // 
-            // TagName_lb
-            // 
-            this.TagName_lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TagName_lb.AutoSize = true;
-            this.TagName_lb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TagName_lb.ForeColor = System.Drawing.Color.White;
-            this.TagName_lb.Location = new System.Drawing.Point(519, 102);
-            this.TagName_lb.Name = "TagName_lb";
-            this.TagName_lb.Size = new System.Drawing.Size(94, 21);
-            this.TagName_lb.TabIndex = 118;
-            this.TagName_lb.Text = "Məhsul adı";
-            // 
             // about_btn
             // 
             this.about_btn.BackColor = System.Drawing.Color.White;
@@ -458,8 +427,6 @@ namespace PlayTechFullVersion
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.about_btn);
             this.Controls.Add(this.AddProduct_dgv);
-            this.Controls.Add(this.Product_cb);
-            this.Controls.Add(this.TagName_lb);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -493,8 +460,6 @@ namespace PlayTechFullVersion
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.DataGridView AddProduct_dgv;
-        private System.Windows.Forms.ComboBox Product_cb;
-        private System.Windows.Forms.Label TagName_lb;
         private System.Windows.Forms.Button about_btn;
         private System.Windows.Forms.Label Logo;
         private System.Windows.Forms.Label label2;

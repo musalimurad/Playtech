@@ -1,5 +1,4 @@
 ﻿using PlayTechFullVersion.Helpers;
-using PlayTechFullVersion.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task.Models;
+using WinFormsAppModel.Models;
 
 namespace PlayTechFullVersion
 {
@@ -84,8 +85,9 @@ namespace PlayTechFullVersion
                 Say = b.Quantity,
                 GəlişQiyməti = b.Price,
                 SatışQiyməti = b.SalePrice,
-                GəlişTarixi = b.PublishDate
-               
+                GəlişTarixi = b.PublishDate,
+                Mövcud = b.IsDelete? "Satışda yoxdur" : "Satışda var"
+
 
             }).ToList();
             AddProduct_dgv.Columns[0].Visible = false;
@@ -113,6 +115,7 @@ namespace PlayTechFullVersion
             Barcode_tb.Text = default;
             Quantity_num.Value = 1;
             Price_num.Value = default;
+            isDelete_chb.Checked = false;
             SalePrice_num.Value = 1;
             PublishDate_dtp.Value = DateTime.Now;
         }
@@ -131,7 +134,7 @@ namespace PlayTechFullVersion
             decimal SalePrice = SalePrice_num.Value;
             DateTime PublishDate = PublishDate_dtp.Value;
             int Count = (int)Quantity_num.Value;
-
+            bool isDelete = isDelete_chb.Checked;
             string[] Myarr = { ProductName, FirmName, CategoryName, Barcode };
             if (Utilities.IsEmpty(Myarr))
             {
@@ -151,6 +154,7 @@ namespace PlayTechFullVersion
                             SalePrice = SalePrice,
                             PublishDate = PublishDate,
                             Quantity = Count,
+                            IsDelete = isDelete
                         };
                         playTechDB.Products.Add(product);
                         playTechDB.SaveChanges();
@@ -233,6 +237,7 @@ namespace PlayTechFullVersion
             Barcode_tb.Text = selectedProduct.BarCode;
             Firmname_cb.Text = selectedFirm.FirmName;
             Category_cb.Text = selectedCategory.CategoryName;
+            isDelete_chb.Checked = selectedProduct.IsDelete;
             Delete_btn.Visible = true;
             Edit_btn.Visible = true;
             Back_btn.Visible = true;
@@ -240,7 +245,7 @@ namespace PlayTechFullVersion
         }
 
         private void HideButton()
-        {
+        {   
             Delete_btn.Visible = false;
             Edit_btn.Visible = false;
             Back_btn.Visible = false;
@@ -250,7 +255,10 @@ namespace PlayTechFullVersion
 
         private void DeleteButton()
         {
-            playTechDB.Products.Remove(selectedProduct);
+
+            selectedProduct.IsDelete = true;
+            
+           
             playTechDB.SaveChanges();
             Clear();
             HideButton();
@@ -271,6 +279,7 @@ namespace PlayTechFullVersion
             selectedProduct.CategoryId = selectedCategory.Id;
             selectedProduct.BarCode = Barcode_tb.Text;
             selectedProduct.PublishDate = PublishDate_dtp.Value;
+            selectedProduct.IsDelete = isDelete_chb.Checked;
             playTechDB.Products.Update(selectedProduct);
             playTechDB.SaveChanges();
             Clear();

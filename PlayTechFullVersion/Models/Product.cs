@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace PlayTechFullVersion.Models
+namespace WinFormsAppModel.Models
 {
     public partial class Product
     {
@@ -14,13 +14,14 @@ namespace PlayTechFullVersion.Models
 
         public int Id { get; set; }
         public string ProductName { get; set; }
-        public int FirmId { get; set; }
+        public int? FirmId { get; set; }
         public int? CategoryId { get; set; }
         public DateTime? PublishDate { get; set; }
         public int? Quantity { get; set; }
         public decimal? Price { get; set; }
         public decimal? SalePrice { get; set; }
         public string BarCode { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Firm Firm { get; set; }

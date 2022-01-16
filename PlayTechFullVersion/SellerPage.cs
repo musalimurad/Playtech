@@ -1,5 +1,4 @@
-﻿using PlayTechFullVersion.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task.Models;
 
 namespace PlayTechFullVersion
 {
@@ -28,12 +28,12 @@ namespace PlayTechFullVersion
 
         private void FillProductCombo()
         {
-            Product_cb.Items.AddRange(playTechDB.Products.Select(x => x.ProductName).ToArray());
+            Product_cb.Items.AddRange(playTechDB.Products.Where(x=>x.IsDelete==false).Select(x => x.ProductName).ToArray());
         }
 
         private void FillDataGrid()
         {
-            AddProduct_dgv.DataSource = playTechDB.Products.Where(m => m.ProductName.Contains(Product_cb.Text) &&
+            AddProduct_dgv.DataSource = playTechDB.Products.Where(m =>m.IsDelete==false &&  m.ProductName.Contains(Product_cb.Text) &&
             m.Firm.FirmName.Contains(Firm_cb.Text)).Select(b => new
             {
                 ID = b.Id,
@@ -135,6 +135,12 @@ namespace PlayTechFullVersion
         private void AddProduct_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            DailySaleBase dailySaleBase = new();
+            dailySaleBase.Show();
         }
     }
 }

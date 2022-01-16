@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace PlayTechFullVersion.Models
+namespace WinFormsAppModel.Models
 {
     public partial class Order
     {
@@ -16,7 +16,7 @@ namespace PlayTechFullVersion.Models
         public decimal? TotalPrice { get; set; }
         public DateTime? SaleDate { get; set; }
         public string OrderCode { get; set; }
-        //public bool IsRefunded { get; set; }
+
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

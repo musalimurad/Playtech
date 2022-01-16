@@ -1,5 +1,4 @@
 ﻿using PlayTechFullVersion.Helpers;
-using PlayTechFullVersion.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task.Models;
+using WinFormsAppModel.Models;
 
 namespace PlayTechFullVersion
 {
@@ -69,7 +70,7 @@ namespace PlayTechFullVersion
                     if (Password == RePassword)
                     {
 
-                        Models.User selectedUser = playTechDB.Users.FirstOrDefault(x => x.Phone == Phone);
+                        User selectedUser = playTechDB.Users.FirstOrDefault(x => x.Phone == Phone);
                         if (selectedUser == null)
                         {
                             playTechDB.Users.Add(new User()
@@ -190,6 +191,7 @@ namespace PlayTechFullVersion
             Delete_btn.Visible = false;
             Back_btn.Visible = false;
             RegisterAdmin_btn.Visible = true;
+            Clear();
         }
 
         private void DeleteButton()

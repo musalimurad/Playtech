@@ -56,6 +56,7 @@ namespace PlayTechFullVersion
             this.about_btn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddProduct_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -402,7 +403,7 @@ namespace PlayTechFullVersion
             this.about_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.about_btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.about_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
-            this.about_btn.Location = new System.Drawing.Point(165, 52);
+            this.about_btn.Location = new System.Drawing.Point(12, 65);
             this.about_btn.Name = "about_btn";
             this.about_btn.Size = new System.Drawing.Size(220, 46);
             this.about_btn.TabIndex = 125;
@@ -430,12 +431,30 @@ namespace PlayTechFullVersion
             this.panel3.Size = new System.Drawing.Size(124, 18);
             this.panel3.TabIndex = 175;
             // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
+            this.button10.Location = new System.Drawing.Point(291, 65);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(220, 46);
+            this.button10.TabIndex = 177;
+            this.button10.Text = "Günlük satış bazası";
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // SellerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1242, 788);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.about_btn);
@@ -487,5 +506,6 @@ namespace PlayTechFullVersion
         private System.Windows.Forms.Button about_btn;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button10;
     }
 }

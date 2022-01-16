@@ -40,6 +40,7 @@ namespace PlayTechFullVersion
             this.Exit_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -199,6 +200,7 @@ namespace PlayTechFullVersion
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
+            this.panel2.Controls.Add(this.button9);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.button8);
             this.panel2.Controls.Add(this.button7);
@@ -211,6 +213,22 @@ namespace PlayTechFullVersion
             this.panel2.Size = new System.Drawing.Size(436, 489);
             this.panel2.TabIndex = 14;
             // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.Color.White;
+            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button9.FlatAppearance.BorderSize = 0;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
+            this.button9.Location = new System.Drawing.Point(12, 431);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(398, 46);
+            this.button9.TabIndex = 7;
+            this.button9.Text = "Kassadan götürülən vəya qoyulan məbləğ";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.White;
@@ -219,7 +237,7 @@ namespace PlayTechFullVersion
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
-            this.button6.Location = new System.Drawing.Point(12, 378);
+            this.button6.Location = new System.Drawing.Point(12, 360);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(398, 46);
             this.button6.TabIndex = 6;
@@ -235,7 +253,7 @@ namespace PlayTechFullVersion
             this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
-            this.button8.Location = new System.Drawing.Point(12, 309);
+            this.button8.Location = new System.Drawing.Point(12, 292);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(398, 46);
             this.button8.TabIndex = 5;
@@ -251,7 +269,7 @@ namespace PlayTechFullVersion
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
-            this.button7.Location = new System.Drawing.Point(12, 242);
+            this.button7.Location = new System.Drawing.Point(12, 228);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(398, 46);
             this.button7.TabIndex = 4;
@@ -267,7 +285,7 @@ namespace PlayTechFullVersion
             this.about_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.about_btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.about_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
-            this.about_btn.Location = new System.Drawing.Point(12, 178);
+            this.about_btn.Location = new System.Drawing.Point(12, 161);
             this.about_btn.Name = "about_btn";
             this.about_btn.Size = new System.Drawing.Size(398, 46);
             this.about_btn.TabIndex = 2;
@@ -283,7 +301,7 @@ namespace PlayTechFullVersion
             this.AddSeller_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddSeller_btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddSeller_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
-            this.AddSeller_btn.Location = new System.Drawing.Point(12, 116);
+            this.AddSeller_btn.Location = new System.Drawing.Point(12, 93);
             this.AddSeller_btn.Name = "AddSeller_btn";
             this.AddSeller_btn.Size = new System.Drawing.Size(398, 46);
             this.AddSeller_btn.TabIndex = 1;
@@ -299,7 +317,7 @@ namespace PlayTechFullVersion
             this.AddProduct_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddProduct_btn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddProduct_btn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
-            this.AddProduct_btn.Location = new System.Drawing.Point(12, 54);
+            this.AddProduct_btn.Location = new System.Drawing.Point(12, 26);
             this.AddProduct_btn.Name = "AddProduct_btn";
             this.AddProduct_btn.Size = new System.Drawing.Size(398, 46);
             this.AddProduct_btn.TabIndex = 0;
@@ -372,5 +390,6 @@ namespace PlayTechFullVersion
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button9;
     }
 }

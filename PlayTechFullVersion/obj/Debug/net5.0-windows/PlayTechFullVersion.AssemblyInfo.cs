@@ -11,13 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("PlayTechFullVersion")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MusaliMurad")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("PlayTechFullVersion")]
-[assembly: System.Reflection.AssemblyTitleAttribute("PlayTechFullVersion")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("2021-ci ildə Musalı Murad Tərəfindən yaradılıb bütün müəllif hüquqları qorunur")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("2021-ci ildə Musalı Murad Tərəfindən yaradılıb bütün müəllif hüquqları qorunur")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("2.0.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2.0.0")]
+[assembly: System.Reflection.AssemblyProductAttribute("PlayTech")]
+[assembly: System.Reflection.AssemblyTitleAttribute("PlayTech")]
+[assembly: System.Reflection.AssemblyVersionAttribute("2.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 

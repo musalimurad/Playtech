@@ -52,7 +52,6 @@ namespace PlayTechFullVersion
         {
             DailySaleBase dailySaleBase = new();
             dailySaleBase.Show();
-            this.Close();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -66,6 +65,13 @@ namespace PlayTechFullVersion
         {
             MonthPayOff monthPayOff = new();
             monthPayOff.Show();
+            this.Close();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            DebtsPage debtsPage = new();
+            debtsPage.Show();
             this.Close();
         }
     }

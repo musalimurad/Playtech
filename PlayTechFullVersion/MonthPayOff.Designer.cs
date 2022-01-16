@@ -334,8 +334,8 @@ namespace PlayTechFullVersion
             this.MonthMoney_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MonthMoney_num.Location = new System.Drawing.Point(29, 163);
             this.MonthMoney_num.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1569325056,
+            23283064,
             0,
             0});
             this.MonthMoney_num.Minimum = new decimal(new int[] {
@@ -369,8 +369,8 @@ namespace PlayTechFullVersion
             this.WorkerSalary_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.WorkerSalary_num.Location = new System.Drawing.Point(29, 230);
             this.WorkerSalary_num.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            -727379968,
+            232,
             0,
             0});
             this.WorkerSalary_num.Minimum = new decimal(new int[] {
@@ -404,8 +404,8 @@ namespace PlayTechFullVersion
             this.FloorMoney_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FloorMoney_num.Location = new System.Drawing.Point(29, 298);
             this.FloorMoney_num.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1569325056,
+            23283064,
             0,
             0});
             this.FloorMoney_num.Minimum = new decimal(new int[] {
@@ -439,8 +439,8 @@ namespace PlayTechFullVersion
             this.CommunalMoney_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.CommunalMoney_num.Location = new System.Drawing.Point(29, 368);
             this.CommunalMoney_num.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            1410065408,
+            2,
             0,
             0});
             this.CommunalMoney_num.Minimum = new decimal(new int[] {
@@ -474,8 +474,8 @@ namespace PlayTechFullVersion
             this.MonthPrice_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.MonthPrice_num.Location = new System.Drawing.Point(29, 436);
             this.MonthPrice_num.Maximum = new decimal(new int[] {
-            100000,
-            0,
+            276447232,
+            23283,
             0,
             0});
             this.MonthPrice_num.Minimum = new decimal(new int[] {

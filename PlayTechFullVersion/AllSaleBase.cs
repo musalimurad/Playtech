@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PlayTechFullVersion.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task.Models;
+using WinFormsAppModel.Models;
 
 namespace PlayTechFullVersion
 {
@@ -24,28 +25,31 @@ namespace PlayTechFullVersion
         }
         private void FillProductCombo()
         {
-            Product_cb.Items.AddRange(playTechDB.Products.Select(x => x.ProductName).ToArray());
+            Product_cb.Items.AddRange(playTechDB.Products.Where(x=>x.IsDelete==false).Select(x => x.ProductName).ToArray());
         }
         private void FillDataGrid()
         {
             AddProduct_dgv.DataSource = playTechDB.OrderItems
                 .Where(m => m.Product.ProductName.Contains(Product_cb.Text)
-                && m.DailySaleDate.Value.Day==PublishDate_dtp.Value.Day).Select(b => new
+                && m.DailySaleDate.Value.Day==PublishDate_dtp.Value.Day && m.DailySaleDate.Value.Month == PublishDate_dtp.Value.Month && m.DailySaleDate.Value.Year == PublishDate_dtp.Value.Year).Select(b => new
                 {
                     ID = b.Id,
                     Ad = b.Product.ProductName,
                     Firma = b.Product.Firm.FirmName,
                     Barkod = b.Product.BarCode,
                     SatılanSay = b.Quantity,
-                    ÜmumiSatışQiyməti = b.IsRefunded==true? b.ItemPrice - (b.RefundedCount * b.Product.SalePrice) : b.ItemPrice,
-                    BirədədMəhsulQiyməti = b.Product.SalePrice,
-                    GəlişQiyməti = b.Product.Price,
+                    ÜmumiSatış = b.IsRefunded==true? b.ItemPrice - (b.RefundedCount * b.Product.SalePrice) : b.ItemPrice,
+                    SatışQiyməti = b.Product.SalePrice,
+                    MayaQiyməti = b.Product.Price,
                     SatışTarixi = b.DailySaleDate,
+                    SatışNövü = b.SaleType.Type,
+                    KreditMüddəti = b.CreditMonth.Month,
                     SatışVəziyyəti=!b.IsRefunded?"Satılıb":$"{b.RefundedCount} ədəd Geri Qaytarıldı"
                 }).ToList();
             AddProduct_dgv.Columns[0].Visible = false;
-            AllPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Sum(x => x.IsRefunded==true? x.ItemPrice- x.RefundedCount * x.Product.SalePrice : x.ItemPrice) + "Azn");
-            TopPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Sum(x => (decimal)(x.IsRefunded==true? (x.ItemPrice - (x.RefundedCount * x.Product.SalePrice)) - (x.Quantity* x.Product.Price) : x.ItemPrice - (x.Quantity * x.Product.Price))) + "Azn");
+            AllPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Where(x=> x.DailySaleDate.Value.Day==  PublishDate_dtp.Value.Day && x.DailySaleDate.Value.Month==PublishDate_dtp.Value.Month && x.DailySaleDate.Value.Year==PublishDate_dtp.Value.Year).Sum(x => x.IsRefunded==true? x.ItemPrice- x.RefundedCount * x.Product.SalePrice : x.ItemPrice) + "  Azn");
+            TopPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Where(x=> x.DailySaleDate.Value.Day == PublishDate_dtp.Value.Day && x.DailySaleDate.Value.Month == PublishDate_dtp.Value.Month && x.DailySaleDate.Value.Year == PublishDate_dtp.Value.Year).Sum(x => (decimal)(x.IsRefunded==true? (x.ItemPrice - (x.RefundedCount * x.Product.SalePrice)) - (x.Quantity* x.Product.Price) : x.ItemPrice - (x.Quantity * x.Product.Price))) + "  Azn");
+            rasxod_lb.Text = Convert.ToString((playTechDB.OrderItems.Where(x => x.DailySaleDate.Value.Day == PublishDate_dtp.Value.Day && x.DailySaleDate.Value.Month == PublishDate_dtp.Value.Month && x.DailySaleDate.Value.Year == PublishDate_dtp.Value.Year).Sum(x => x.IsRefunded == true ? x.ItemPrice - x.RefundedCount * x.Product.SalePrice : x.ItemPrice)) - (playTechDB.OrderItems.Where(x => x.DailySaleDate.Value.Day == PublishDate_dtp.Value.Day && x.DailySaleDate.Value.Month == PublishDate_dtp.Value.Month && x.DailySaleDate.Value.Year == PublishDate_dtp.Value.Year).Sum(x => (decimal)(x.IsRefunded == true ? (x.ItemPrice - (x.RefundedCount * x.Product.SalePrice)) - (x.Quantity * x.Product.Price) : x.ItemPrice - (x.Quantity * x.Product.Price)))) + "  Azn");
             for (int i = 0; i < AddProduct_dgv.RowCount; i++)
             {
                 int Quantity = (int)AddProduct_dgv.Rows[i].Cells[4].Value;
@@ -80,9 +84,10 @@ namespace PlayTechFullVersion
             if (quantity <= selectedOrder.Quantity && quantity!=0)
             {
                 selectedOrder.IsRefunded = true;
-                selectedOrder.RefundedCount += quantity;
+                selectedOrder.RefundedCount = quantity;
                 selectedOrder.Quantity -= quantity;
                 selectedOrder.Product.Quantity += quantity;
+
                 playTechDB.SaveChanges();
                 MessageBox.Show($"{selectedOrder.Product.ProductName} adlı məhsuldan {selectedOrder.RefundedCount} ədəd geri qaytarıldı", "Geri qaytarılma", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 panel2.Visible = false;
@@ -161,6 +166,11 @@ namespace PlayTechFullVersion
         private void Product_cb_KeyUp(object sender, KeyEventArgs e)
         {
             FillDataGrid();
+        }
+
+        private void ProductName_tb_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

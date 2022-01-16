@@ -1,5 +1,4 @@
 ﻿using PlayTechFullVersion.Helpers;
-using PlayTechFullVersion.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task.Models;
+using WinFormsAppModel.Models;
 
 namespace PlayTechFullVersion
 {
@@ -122,6 +123,7 @@ namespace PlayTechFullVersion
             MessageBox.Show(" Məlumat silindi", "Mesaj", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Delete_btn.Visible = false;
             AddProduct_btn.Visible = true;
+            Back_btn.Visible = false;
             FillDataGrid();
         }
         private void Delete_btn_Click(object sender, EventArgs e)
@@ -140,12 +142,12 @@ namespace PlayTechFullVersion
 
             SelectedExpense = playTechDB.Expenses.First(x => x.Id ==ExID);
             Fullname_tb.Text = SelectedExpense.Fullname;
-            MonthMoney_num.Value = SelectedExpense.AllMoney;
-            MonthPrice_num.Value = SelectedExpense.Price;
-            FloorMoney_num.Value = SelectedExpense.FloorPrice;
-            WorkerSalary_num.Value = SelectedExpense.WorkerSalary;
-            CommunalMoney_num.Value = SelectedExpense.Communal;
-            MonthCalcDate_dtp.Value = SelectedExpense.CalcDate;
+            MonthMoney_num.Value = (decimal)SelectedExpense.AllMoney;
+            MonthPrice_num.Value = (decimal)SelectedExpense.Price;
+            FloorMoney_num.Value = (decimal)SelectedExpense.FloorPrice;
+            WorkerSalary_num.Value = (decimal)SelectedExpense.WorkerSalary;
+            CommunalMoney_num.Value = (decimal)SelectedExpense.Communal;
+            MonthCalcDate_dtp.Value = (DateTime)SelectedExpense.CalcDate;
             Delete_btn.Visible = true;
             Back_btn.Visible = true;
             AddProduct_btn.Visible = false;

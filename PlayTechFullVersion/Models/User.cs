@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace PlayTechFullVersion.Models
+namespace WinFormsAppModel.Models
 {
     public partial class User
     {

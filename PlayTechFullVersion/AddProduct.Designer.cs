@@ -65,6 +65,7 @@ namespace PlayTechFullVersion
             this.label1 = new System.Windows.Forms.Label();
             this.SalePrice_num = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
+            this.isDelete_chb = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Price_num)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Quantity_num)).BeginInit();
@@ -281,7 +282,7 @@ namespace PlayTechFullVersion
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(13, 244);
+            this.label9.Location = new System.Drawing.Point(13, 242);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(64, 21);
             this.label9.TabIndex = 164;
@@ -298,7 +299,7 @@ namespace PlayTechFullVersion
             this.Barcode_tb.Font = new System.Drawing.Font("Yu Gothic UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Barcode_tb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(62)))), ((int)(((byte)(86)))));
             this.Barcode_tb.ImeMode = System.Windows.Forms.ImeMode.KatakanaHalf;
-            this.Barcode_tb.Location = new System.Drawing.Point(13, 268);
+            this.Barcode_tb.Location = new System.Drawing.Point(13, 266);
             this.Barcode_tb.Multiline = true;
             this.Barcode_tb.Name = "Barcode_tb";
             this.Barcode_tb.ShortcutsEnabled = false;
@@ -362,9 +363,9 @@ namespace PlayTechFullVersion
             this.Price_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Price_num.Location = new System.Drawing.Point(227, 155);
             this.Price_num.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
+            1241513984,
+            370409800,
+            542101,
             0});
             this.Price_num.Name = "Price_num";
             this.Price_num.Size = new System.Drawing.Size(200, 29);
@@ -386,9 +387,9 @@ namespace PlayTechFullVersion
             this.Quantity_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Quantity_num.Location = new System.Drawing.Point(227, 98);
             this.Quantity_num.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
+            -1304428544,
+            434162106,
+            542,
             0});
             this.Quantity_num.Name = "Quantity_num";
             this.Quantity_num.Size = new System.Drawing.Size(200, 29);
@@ -531,9 +532,9 @@ namespace PlayTechFullVersion
             this.SalePrice_num.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SalePrice_num.Location = new System.Drawing.Point(227, 210);
             this.SalePrice_num.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
+            -1593835520,
+            466537709,
+            54210,
             0});
             this.SalePrice_num.Minimum = new decimal(new int[] {
             1,
@@ -560,12 +561,24 @@ namespace PlayTechFullVersion
             this.label10.TabIndex = 172;
             this.label10.Text = "Sayı bitib";
             // 
+            // isDelete_chb
+            // 
+            this.isDelete_chb.AutoSize = true;
+            this.isDelete_chb.ForeColor = System.Drawing.Color.White;
+            this.isDelete_chb.Location = new System.Drawing.Point(13, 322);
+            this.isDelete_chb.Name = "isDelete_chb";
+            this.isDelete_chb.Size = new System.Drawing.Size(103, 19);
+            this.isDelete_chb.TabIndex = 173;
+            this.isDelete_chb.Text = "Satışda yoxdur";
+            this.isDelete_chb.UseVisualStyleBackColor = true;
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1084, 655);
+            this.Controls.Add(this.isDelete_chb);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SalePrice_num);
@@ -641,5 +654,6 @@ namespace PlayTechFullVersion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown SalePrice_num;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox isDelete_chb;
     }
 }

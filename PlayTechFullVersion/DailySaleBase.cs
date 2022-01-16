@@ -1,5 +1,4 @@
-﻿using PlayTechFullVersion.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task.Models;
 
 namespace PlayTechFullVersion
 {
@@ -19,30 +19,31 @@ namespace PlayTechFullVersion
         {
             InitializeComponent();
         }
-
+        
         private void FillDataGrid()
         {
-            
-            AddProduct_dgv.DataSource = playTechDB.OrderItems.Where(m => m.Product.ProductName.Contains(Product_cb.Text)).Select(b => new 
+
+            AddProduct_dgv.DataSource = playTechDB.OrderItems.Where(x => x.DailySaleDate.Value.DayOfYear == DateTime.Now.DayOfYear).Select(b => new
             {
-                
+
                 ID = b.Id,
                 Ad = b.Product.ProductName,
-                Firma = b.Product.Firm.FirmName,
+                Kateqoriya = b.Product.Category.CategoryName,
                 Barkod = b.Product.BarCode,
                 SatılanSay = b.Quantity,
-                ÜmumiSatışQiyməti = b.IsRefunded == true ? b.ItemPrice - (b.RefundedCount * b.Product.SalePrice) : b.ItemPrice,
-                BirədədMəhsulQiyməti = b.Product.SalePrice,
-                GəlişQiyməti = b.Product.Price,
-                SatışTarixi = b.DailySaleDate,
-                
+                ÜmumiSatış = b.IsRefunded == true ? b.ItemPrice - (b.RefundedCount * b.Product.SalePrice) : b.ItemPrice,
+                SatışQiyməti = b.Product.SalePrice,
+                MayaQiyməti = b.Product.Price,
+                SatışTarixi = DateTime.Today,
+                satışNövü = b.SaleType.Type,
+                KreditMüddəti = b.CreditMonth.Month
 
             }).ToList();
             AddProduct_dgv.Columns[0].Visible = false;
-            dateTime_lb.Text = Convert.ToString(DateTime.Now);
+            dateTime_lb.Text = Convert.ToString(DateTime.UtcNow);
 
-                AllPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Sum(x => x.IsRefunded == true ? x.ItemPrice - x.RefundedCount * x.Product.SalePrice : x.ItemPrice) + "Azn");
-                TopPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Sum(x => Math.Floor((decimal)(x.IsRefunded == true ? (x.ItemPrice - (x.RefundedCount * x.Product.SalePrice)) - (x.Quantity * x.Product.Price) : x.ItemPrice - (x.Quantity * x.Product.Price)))) + "Azn");
+                AllPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Where(x=>x.DailySaleDate.Value.DayOfYear==DateTime.UtcNow.DayOfYear).Sum(x => x.IsRefunded == true ? x.ItemPrice - x.RefundedCount * x.Product.SalePrice : x.ItemPrice) + "Azn");
+                TopPrice_lb.Text = Convert.ToString(playTechDB.OrderItems.Where(x => x.DailySaleDate.Value.DayOfYear == DateTime.UtcNow.DayOfYear).Sum(x => (decimal)(x.IsRefunded == true ? (x.ItemPrice - (x.RefundedCount * x.Product.SalePrice)) - (x.Quantity * x.Product.Price) : x.ItemPrice - (x.Quantity * x.Product.Price))) + "Azn");
             
             for (int i = 0; i < AddProduct_dgv.RowCount; i++)
             {
@@ -56,17 +57,12 @@ namespace PlayTechFullVersion
             }
         }
 
-        private void FillProductCombo()
-        {
-            Product_cb.Items.AddRange(playTechDB.Products.Select(x => x.ProductName).ToArray());
-        }
        
 
         private void button8_Click(object sender, EventArgs e)
         {
             
-            AdminPage adminPage = new();
-            adminPage.Show();
+            
             this.Close();
         }
 
@@ -78,8 +74,6 @@ namespace PlayTechFullVersion
         private void DailySaleBase_Load(object sender, EventArgs e)
         {
             FillDataGrid();
-            FillProductCombo();
-           
         }
 
         #region search and excel method
